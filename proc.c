@@ -225,7 +225,7 @@ fork(void)
 // An exited process remains in the zombie state
 // until its parent calls wait() to find out it exited.
 void
-exit(void)
+exit(int status)
 {
   struct proc *curproc = myproc();
   struct proc *p;
@@ -246,6 +246,9 @@ exit(void)
   iput(curproc->cwd);
   end_op();
   curproc->cwd = 0;
+  curproc->exitStatus = status;
+
+  cprintf("\n\n Hello from your exitstatus function: this is your status: %d! \n\n", curproc->exitStatus);
 
   acquire(&ptable.lock);
 
@@ -267,10 +270,63 @@ exit(void)
   panic("zombie exit");
 }
 
+
+// Exit the current process.  Does not return.
+// Stores the exit status of the terminated process.
+// An exited process remains in the zombie state
+// until its parent calls wait() to find out it exited.
+//void
+//exitstatus(int status)
+//{
+//  struct proc *curproc = myproc();
+//  struct proc *p;
+//  int fd;
+//
+//  if(curproc == initproc)
+//    panic("init exiting");
+//
+//  // Close all open files.
+//  for(fd = 0; fd < NOFILE; fd++){
+//    if(curproc->ofile[fd]){
+//      fileclose(curproc->ofile[fd]);
+//      curproc->ofile[fd] = 0;
+//    }
+//  }
+//
+//  begin_op();
+//  iput(curproc->cwd);
+//  end_op();
+//  curproc->cwd = 0;
+//  curproc->exitStatus = status;
+//
+//  cprintf("\n\n Hello from your exitstatus function: this is your status: %d! \n\n", curproc->status);
+//
+//  acquire(&ptable.lock);
+//
+//  // Parent might be sleeping in wait().
+//  wakeup1(curproc->parent);
+//
+//  // Pass abandoned children to init.
+//  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+//    if(p->parent == curproc){
+//      p->parent = initproc;
+//      if(p->state == ZOMBIE)
+//        wakeup1(initproc);
+//    }
+//  }
+//
+//  // Jump into the scheduler, never to return.
+//  curproc->state = ZOMBIE;
+//  sched();
+//  panic("zombie exit");
+//}
+
+
 // Wait for a child process to exit and return its pid.
+// Return the terminated child exit status through the status argument.
 // Return -1 if this process has no children.
 int
-wait(void)
+wait(int *status)
 {
   struct proc *p;
   int havekids, pid;
@@ -284,9 +340,15 @@ wait(void)
       if(p->parent != curproc)
         continue;
       havekids = 1;
-      if(p->state == ZOMBIE){
+      if(p->state == ZOMBIE){ //zombies: finished, waiting to be reaped
         // Found one.
         pid = p->pid;
+
+        //Lab 1
+        if (status != 0) {
+            *status = p->exitStatus; //retrieves the zombie process' exit status
+        }
+
         kfree(p->kstack);
         p->kstack = 0;
         freevm(p->pgdir);

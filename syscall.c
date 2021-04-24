@@ -87,6 +87,8 @@ extern int sys_close(void);
 extern int sys_dup(void);
 extern int sys_exec(void);
 extern int sys_exit(void);
+extern int sys_exitstatus(void);
+extern int sys_hello(void);
 extern int sys_fork(void);
 extern int sys_fstat(void);
 extern int sys_getpid(void);
@@ -107,6 +109,7 @@ extern int sys_uptime(void);
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
 [SYS_exit]    sys_exit,
+//[SYS_exitstatus]    sys_exitstatus,
 [SYS_wait]    sys_wait,
 [SYS_pipe]    sys_pipe,
 [SYS_read]    sys_read,
@@ -126,6 +129,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+//[SYS_hello]   sys_hello,
 };
 
 void

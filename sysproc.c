@@ -16,14 +16,38 @@ sys_fork(void)
 int
 sys_exit(void)
 {
-  exit();
-  return 0;  // not reached
+    int status;
+
+    if (argint(0, &status) < 0)
+        return -1;
+    exit(status); //no return
+    return 0; // not reached
 }
+
+//int
+//sys_exitstatus(void)
+//{
+//    int status;
+//
+//    if (argint(0, &status) < 0)
+//        return -1;
+//    exitstatus(status); //no return
+//    return 0; // not reached
+//}
 
 int
 sys_wait(void)
 {
-  return wait();
+    int* status;
+
+    //get the int* from arguments
+    //argptr(int n, char **pp, int size), char** => array of cstrings, "word-sized system call argument"
+    // Fetch the nth word-sized argument as a pointer to a block of memory of size bytes.
+    // Check that the pointer lies within the process address space."
+    if (argptr(0, (void*)&status, sizeof(int)) < 0) {
+        return -1;
+    }
+    return wait(status); //pass in the argument here
 }
 
 int
@@ -89,3 +113,4 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
