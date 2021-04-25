@@ -248,8 +248,6 @@ exit(int status)
   curproc->cwd = 0;
   curproc->exitStatus = status;
 
-  cprintf("\n\n Hello from your exitstatus function: this is your status: %d! \n\n", curproc->exitStatus);
-
   acquire(&ptable.lock);
 
   // Parent might be sleeping in wait().
@@ -342,13 +340,13 @@ wait(int *status)
       havekids = 1;
       if(p->state == ZOMBIE){ //zombies: finished, waiting to be reaped
         // Found one.
+
+          //Lab 1
+          if (status != 0) {
+              *status = p->exitStatus; //retrieves the zombie process' exit status
+          }
+
         pid = p->pid;
-
-        //Lab 1
-        if (status != 0) {
-            *status = p->exitStatus; //retrieves the zombie process' exit status
-        }
-
         kfree(p->kstack);
         p->kstack = 0;
         freevm(p->pgdir);

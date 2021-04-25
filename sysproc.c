@@ -44,7 +44,7 @@ sys_wait(void)
     //argptr(int n, char **pp, int size), char** => array of cstrings, "word-sized system call argument"
     // Fetch the nth word-sized argument as a pointer to a block of memory of size bytes.
     // Check that the pointer lies within the process address space."
-    if (argptr(0, (void*)&status, sizeof(int)) < 0) {
+    if (argptr(0, (char**)&status, sizeof(int)) < 0) {
         return -1;
     }
     return wait(status); //pass in the argument here

@@ -4,8 +4,7 @@ struct rtcdate;
 // system calls
 int fork(void);
 int exit(int status) __attribute__((noreturn));
-//int exitstatus(int status) __attribute__((noreturn));
-int wait(int *status); //now takes int* as parameter
+int wait(int *status); //now takes int* as parameter, return the terminated child exit status through the status argument.
 int pipe(int*);
 int write(int, const void*, int);
 int read(int, void*, int);
