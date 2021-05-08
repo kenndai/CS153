@@ -89,6 +89,9 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
 
+  //Lab2: add a default priority when a process is being initialized
+  p->priority = 15; //15 is default priority
+
   release(&ptable.lock);
 
   // Allocate kernel stack.
@@ -181,7 +184,7 @@ int
 fork(void)
 {
   int i, pid;
-  struct proc *np;
+  struct proc *np; //new process, child
   struct proc *curproc = myproc();
 
   // Allocate process.
@@ -199,6 +202,9 @@ fork(void)
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
+
+  //Lab2: child process inherits parent's priority
+  np->priority = curproc->priority;
 
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
