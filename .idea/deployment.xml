@@ -5,7 +5,7 @@
       <paths name="sledge-CS153">
         <serverdata>
           <mappings>
-            <mapping deploy="/xv6" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/CS153/xv6" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
