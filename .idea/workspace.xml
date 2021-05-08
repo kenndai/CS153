@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="implemented waitpid() function" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Lab2" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="xv6" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="xv6" />
+                <option name="path" value="\\wsl$\Ubuntu\home\kdai\CS153\xv6" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="MakefilesProjectLoadingState">
+    <option name="doClean" value="false" />
+  </component>
+  <component name="ProjectId" id="1qtliaZpOe8NC8Mpfn4dej3E1AL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="GDB Remote Debug.gdb_remote">
+    <configuration name="gdb_remote" type="CLion_Remote" version="1" remoteCommand="localhost:25478" symbolFile="$PROJECT_DIR$/kernel" sysroot="$PROJECT_DIR$">
+      <debugger kind="GDB" isBundled="true" />
+      <pathMapping remote=":/home/csmajs/kdai002/xv6" local="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="//wsl$/Ubuntu/home/kdai/CS153/xv6" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="GDB Remote Debug.gdb_remote" />
+      <item itemvalue="Gradle.//wsl$/Ubuntu/home/kdai/CS153/xv6" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="" />
+      <created>1617906896629</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617906896629</updated>
+      <workItem from="1617906899430" duration="3761000" />
+      <workItem from="1618509463259" duration="1746000" />
+      <workItem from="1619060459438" duration="828000" />
+      <workItem from="1619123104439" duration="10263000" />
+      <workItem from="1619157793404" duration="4742000" />
+      <workItem from="1619162652135" duration="442000" />
+      <workItem from="1619163119855" duration="446000" />
+      <workItem from="1619164506305" duration="966000" />
+      <workItem from="1619198117755" duration="12416000" />
+      <workItem from="1619294605377" duration="1528000" />
+      <workItem from="1619298911972" duration="13000" />
+      <workItem from="1619303753092" duration="18505000" />
+      <workItem from="1619390643047" duration="7780000" />
+      <workItem from="1619398561309" duration="934000" />
+      <workItem from="1619718931860" duration="5201000" />
+      <workItem from="1620461460681" duration="4271000" />
+    </task>
+    <task id="LOCAL-00001" summary="modified wait() function working">
+      <created>1619311811216</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619311811216</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implemented waitpid() function">
+      <created>1619324059744</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619324059744</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modified wait() function working" />
+    <MESSAGE value="implemented waitpid() function" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented waitpid() function" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/proc.c</url>
+          <line>334</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/proc.c</url>
+          <line>514</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
