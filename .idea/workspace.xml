@@ -12,7 +12,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="implemented waitpid() function" />
+    <list default="true" id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="implemented waitpid() function">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +65,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -70,6 +77,11 @@
       <debugger kind="GDB" isBundled="true" />
       <pathMapping remote=":/home/csmajs/kdai002/xv6" local="$PROJECT_DIR$" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration name="//wsl$/Ubuntu/home/kdai/CS153/xv6" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
@@ -119,6 +131,7 @@
       <workItem from="1619398561309" duration="934000" />
       <workItem from="1619718931860" duration="5201000" />
       <workItem from="1620461460681" duration="4271000" />
+      <workItem from="1620496692330" duration="850000" />
     </task>
     <task id="LOCAL-00001" summary="modified wait() function working">
       <created>1619311811216</created>

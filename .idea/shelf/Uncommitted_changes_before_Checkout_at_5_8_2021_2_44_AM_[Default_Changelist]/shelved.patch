@@ -1,0 +1,19 @@
+Index: .idea/deployment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PublishConfigData\" autoUpload=\"Always\" serverName=\"sledge-CS153\" remoteFilesAllowedToDisappearOnAutoupload=\"false\">\r\n    <serverData>\r\n      <paths name=\"sledge-CS153\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping deploy=\"/CS153/xv6\" local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n    </serverData>\r\n    <option name=\"myAutoUpload\" value=\"ALWAYS\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deployment.xml b/.idea/deployment.xml
+--- a/.idea/deployment.xml	(revision 61032b544e6a2e6deb1c5135969728fed7ed9ce3)
++++ b/.idea/deployment.xml	(date 1620467033485)
+@@ -5,7 +5,7 @@
+       <paths name="sledge-CS153">
+         <serverdata>
+           <mappings>
+-            <mapping deploy="/CS153/xv6" local="$PROJECT_DIR$" web="/" />
++            <mapping local="$PROJECT_DIR$" web="/" />
+           </mappings>
+         </serverdata>
+       </paths>
