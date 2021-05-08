@@ -538,3 +538,22 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+//Lab2
+//change the priority value of the current proc
+//Then transfer control to scheduler immediately (call sched()) because the priority list has been
+//changed
+//Pay attention to the lock, or directly call yield();
+int
+set_priority(int priority_lv)
+{
+    //range checking
+    if (priority_lv < 0 || priority_lv > 31) {
+        cprintf("Priority level must be between 0 and 31!\n");
+        return -1;
+    }
+    struct proc *curproc = myproc(); //gets the current process
+    curproc->priority = priority_lv;
+    yield(); //give up CPU
+    return 0;
+}
