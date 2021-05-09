@@ -331,46 +331,56 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  //Lab2
-  struct proc *prioProc; //the current highest priority process
-  int highestPrio = 32; //initial out of range priority
 
-  for(;;){
-    // Enable interrupts on this processor.
+  //Lab2
+  struct proc temp;
+  temp.priority = 32; //intial out of bounds priority
+  struct proc *prioProc = &temp; //the current highest priority process
+
+  for(;;){    // Enable interrupts on this processor.
     sti();
+
+    //if prioProc is pointing to a process in the ptable, point it to temp so priority is reset to 32
+    if (prioProc->priority != 32)
+        prioProc = &temp;
 
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      //choose RUNNABLE processes with highest (lowest) priority
-      //need to keep track of the curr highest priority
-      if(p->state != RUNNABLE)
-        continue;
-      else if (p->state == RUNNABLE) {
-          //if iterated process' priority is higher than the max, its the new max
-        if (p->priority <= highestPrio) {
-            highestPrio = p->priority;
-            prioProc = p;
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if (p->state != RUNNABLE)
+            continue;
+        //Lab2: priority scheduling and aging
+        else if (p->state == RUNNABLE) {
+            if (p->priority < prioProc->priority) {
+                if (prioProc->priority != 32) //don't modify the out of bounds priority
+                    prioProc->priority--; //increase priority of OLD prioProc
+                prioProc = p;
+            }
+            else if (p->priority != 0) { //don't age if process' priority is also 0
+                p->priority--;
+            }
         }
-      }
-
-      // Switch to chosen process.  It is the process's job
-      // to release ptable.lock and then reacquire it
-      // before jumping back to us.
-      //Lab2: changed p to prioProc
-      c->proc = prioProc;
-      switchuvm(prioProc);
-      prioProc->state = RUNNING;
-
-      swtch(&(c->scheduler), prioProc->context);
-      switchkvm();
-
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
-      c->proc = 0;
     }
-    release(&ptable.lock);
 
+    // for loop completes, prioProc now points at the process with highest priority
+    // Switch to chosen process.  It is the process's job
+    // to release ptable.lock and then reacquire it
+    // before jumping back to us.
+    // Lab2: changed p to prioProc
+    c->proc = prioProc;
+    switchuvm(prioProc);
+    prioProc->state = RUNNING;
+
+    //Lab2
+    prioProc->priority++; //decrease prioProc priority by one level before entering scheduler again
+
+    swtch(&(c->scheduler), prioProc->context);
+    switchkvm();
+
+    // Process is done running for now.
+    // It should have changed its p->state before coming back.
+    c->proc = 0;
+    release(&ptable.lock);
   }
 }
 

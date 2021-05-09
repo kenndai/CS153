@@ -83,6 +83,11 @@
       <pathMapping remote=":/home/csmajs/kdai002/xv6" local="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="//wsl$/Ubuntu/home/kdai/CS153/xv6" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -133,7 +138,7 @@
       <workItem from="1620461460681" duration="4271000" />
       <workItem from="1620496692330" duration="1899000" />
       <workItem from="1620510377492" duration="1540000" />
-      <workItem from="1620511950811" duration="6998000" />
+      <workItem from="1620511950811" duration="17856000" />
     </task>
     <task id="LOCAL-00001" summary="modified wait() function working">
       <created>1619311811216</created>
@@ -163,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620515170567</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First implementation of priority scheduling in schedule()">
+      <created>1620527299552</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620527299552</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,14 +198,15 @@
     <MESSAGE value="implemented waitpid() function" />
     <MESSAGE value="Modified allocproc() and fork() to initialize priority" />
     <MESSAGE value="Implemented set_priority syscall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented set_priority syscall" />
+    <MESSAGE value="First implementation of priority scheduling in schedule()" />
+    <option name="LAST_COMMIT_MESSAGE" value="First implementation of priority scheduling in schedule()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/proc.c</url>
-          <line>533</line>
+          <line>543</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
