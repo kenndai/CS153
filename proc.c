@@ -331,7 +331,10 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  
+  //Lab2
+  struct proc *prioProc; //the current highest priority process
+  int highestPrio = 32; //initial out of range priority
+
   for(;;){
     // Enable interrupts on this processor.
     sti();
@@ -339,17 +342,27 @@ scheduler(void)
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+      //choose RUNNABLE processes with highest (lowest) priority
+      //need to keep track of the curr highest priority
       if(p->state != RUNNABLE)
         continue;
+      else if (p->state == RUNNABLE) {
+          //if iterated process' priority is higher than the max, its the new max
+        if (p->priority <= highestPrio) {
+            highestPrio = p->priority;
+            prioProc = p;
+        }
+      }
 
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+      //Lab2: changed p to prioProc
+      c->proc = prioProc;
+      switchuvm(prioProc);
+      prioProc->state = RUNNING;
 
-      swtch(&(c->scheduler), p->context);
+      swtch(&(c->scheduler), prioProc->context);
       switchkvm();
 
       // Process is done running for now.

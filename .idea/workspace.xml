@@ -14,13 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="implemented waitpid() function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/defs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.h" beforeDir="false" afterPath="$PROJECT_DIR$/user.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +133,7 @@
       <workItem from="1620461460681" duration="4271000" />
       <workItem from="1620496692330" duration="1899000" />
       <workItem from="1620510377492" duration="1540000" />
-      <workItem from="1620511950811" duration="3168000" />
+      <workItem from="1620511950811" duration="6998000" />
     </task>
     <task id="LOCAL-00001" summary="modified wait() function working">
       <created>1619311811216</created>
@@ -162,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620512968625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implemented set_priority syscall">
+      <created>1620515170567</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620515170567</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,14 +185,15 @@
     <MESSAGE value="modified wait() function working" />
     <MESSAGE value="implemented waitpid() function" />
     <MESSAGE value="Modified allocproc() and fork() to initialize priority" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified allocproc() and fork() to initialize priority" />
+    <MESSAGE value="Implemented set_priority syscall" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented set_priority syscall" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/proc.c</url>
-          <line>520</line>
+          <line>533</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
