@@ -6,7 +6,6 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
-#include "sysproc.c"
 
 struct {
   struct spinlock lock;
@@ -361,16 +360,14 @@ scheduler(void)
         if (p->state != RUNNABLE)
             continue;
         //Lab2: priority scheduling and aging
-        //age runnable processes that do not have the highest priority
+        //age (decrement) runnable processes that won't be chosen / do not have the highest priority
         else if (p->state == RUNNABLE) {
-            if (p->priority < prioProc->priority) {
-                if (prioProc->priority != 32) //don't modify the out of bounds priority
+            if (p->priority <= prioProc->priority) {
+                if (prioProc->priority != 32 && prioProc->priority != 0)
                     prioProc->priority--; //increase priority of OLD prioProc
                 prioProc = p;
             }
-            // age processes with nonzero priority
-            // Should we age process with the same priority as the current prioProc?
-            else if (p->priority != 0) {
+            else {
                 p->priority--;
             }
         }
@@ -386,7 +383,10 @@ scheduler(void)
     prioProc->state = RUNNING;
 
     //Lab2
-    prioProc->priority++; // decrease prioProc priority by one level before entering scheduler again
+    // decrease prioProc priority by one level before entering scheduler again
+    if (prioProc->priority != 31) // if 31 is the highest priority, don't let it be incremented
+        prioProc->priority++;
+    // increment the amount of times the process has been scheduled
     prioProc->burstTime++; // increment the amount of times the process has been scheduled
 
     swtch(&(c->scheduler), prioProc->context);
