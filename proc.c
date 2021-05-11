@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "sysproc.c"
 
 struct {
   struct spinlock lock;
@@ -89,8 +90,11 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
 
-  //Lab2: add a default priority when a process is being initialized
+  // Lab2: Initialize new fields in proc struct
   p->priority = 15; //15 is default priority
+  p->startTime = 0;
+  p->finishTime = 0;
+  p->burstTime = 0; // a process initially has a burst time of 0
 
   release(&ptable.lock);
 
@@ -203,9 +207,6 @@ fork(void)
   np->parent = curproc;
   *np->tf = *curproc->tf;
 
-  //Lab2: child process inherits parent's priority
-  np->priority = curproc->priority;
-
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
 
@@ -221,6 +222,9 @@ fork(void)
   acquire(&ptable.lock);
 
   np->state = RUNNABLE;
+
+  //Lab2: child process inherits parent's priority
+  np->priority = curproc->priority;
 
   release(&ptable.lock);
 
@@ -269,6 +273,13 @@ exit(void)
 
   // Jump into the scheduler, never to return.
   curproc->state = ZOMBIE;
+
+  // Lab2
+  // get the final amount of ticks
+  acquire(&tickslock);
+  curproc->finishTime = ticks;
+  release(&tickslock);
+
   sched();
   panic("zombie exit");
 }
@@ -350,13 +361,16 @@ scheduler(void)
         if (p->state != RUNNABLE)
             continue;
         //Lab2: priority scheduling and aging
+        //age runnable processes that do not have the highest priority
         else if (p->state == RUNNABLE) {
             if (p->priority < prioProc->priority) {
                 if (prioProc->priority != 32) //don't modify the out of bounds priority
                     prioProc->priority--; //increase priority of OLD prioProc
                 prioProc = p;
             }
-            else if (p->priority != 0) { //don't age if process' priority is also 0
+            // age processes with nonzero priority
+            // Should we age process with the same priority as the current prioProc?
+            else if (p->priority != 0) {
                 p->priority--;
             }
         }
@@ -372,7 +386,8 @@ scheduler(void)
     prioProc->state = RUNNING;
 
     //Lab2
-    prioProc->priority++; //decrease prioProc priority by one level before entering scheduler again
+    prioProc->priority++; // decrease prioProc priority by one level before entering scheduler again
+    prioProc->burstTime++; // increment the amount of times the process has been scheduled
 
     swtch(&(c->scheduler), prioProc->context);
     switchkvm();

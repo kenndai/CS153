@@ -14,7 +14,10 @@
   <component name="ChangeListManager">
     <list default="true" id="338b40cc-9e0b-4a9b-b920-2e7b77f88d4f" name="Default Changelist" comment="implemented waitpid() function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/exec.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +71,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="OCFindUsagesOptions.isSearchForTextOccurrences" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -138,7 +142,9 @@
       <workItem from="1620461460681" duration="4271000" />
       <workItem from="1620496692330" duration="1899000" />
       <workItem from="1620510377492" duration="1540000" />
-      <workItem from="1620511950811" duration="17856000" />
+      <workItem from="1620511950811" duration="18725000" />
+      <workItem from="1620696619217" duration="5100000" />
+      <workItem from="1620701892420" duration="3890000" />
     </task>
     <task id="LOCAL-00001" summary="modified wait() function working">
       <created>1619311811216</created>
@@ -175,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620527299552</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial implementation of aging with priority scheduling">
+      <created>1620541319779</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620541319779</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,14 +212,15 @@
     <MESSAGE value="Modified allocproc() and fork() to initialize priority" />
     <MESSAGE value="Implemented set_priority syscall" />
     <MESSAGE value="First implementation of priority scheduling in schedule()" />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of priority scheduling in schedule()" />
+    <MESSAGE value="Initial implementation of aging with priority scheduling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial implementation of aging with priority scheduling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/proc.c</url>
-          <line>543</line>
+          <line>558</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

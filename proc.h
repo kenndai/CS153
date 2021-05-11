@@ -49,7 +49,13 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+    //Lab2: new fields
   int priority;                // Process' priority, range is 0-31
+    //Turnaround time: finishTime - startTime
+  uint startTime;
+  uint finishTime;
+    //Waiting time: Turnaround time - burst time
+  int burstTime;               // How many times the process has been scheduled
 };
 
 // Process memory is laid out contiguously, low addresses first:
